@@ -56,3 +56,8 @@ def cycle(query: str = "crispr") -> dict:
         pass
     hits = score(query)
     return {"source": "locus", "query": query, "hits": len(hits), "ids": [h.get("id") for h in hits]}
+
+
+if __name__ == "__main__":
+    import json
+    print(json.dumps(cycle("crispr")))
