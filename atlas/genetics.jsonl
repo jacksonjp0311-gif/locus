@@ -16,3 +16,18 @@
 {"id": "selection", "domain": "evolution", "claim": "Selection changes allele frequencies when variants affect reproductive success.", "status": "established", "source": "textbook"}
 {"id": "off_target", "domain": "editing", "claim": "CRISPR nucleases can cut sites similar to the intended target.", "status": "established", "source": "literature"}
 {"id": "delivery", "domain": "editing", "claim": "Editing components must reach the target cell. Delivery is a separate problem from cutting.", "status": "established", "source": "literature"}
+{"id": "pam", "domain": "editing", "claim": "A PAM is a short motif next to a CRISPR target that the nuclease requires.", "status": "established", "source": "literature"}
+{"id": "guide_rna", "domain": "editing", "claim": "A guide RNA specifies the DNA sequence a CRISPR nuclease addresses.", "status": "established", "source": "literature"}
+{"id": "hdr", "domain": "editing", "claim": "Homology-directed repair can copy a template into a cut site.", "status": "established", "source": "literature"}
+{"id": "nhej", "domain": "editing", "claim": "Non-homologous end joining often introduces small indels at a cut.", "status": "established", "source": "literature"}
+{"id": "orf", "domain": "sequence", "claim": "An open reading frame is a codon run from start to stop.", "status": "established", "source": "textbook"}
+{"id": "gc_content", "domain": "sequence", "claim": "GC content is the fraction of G and C bases.", "status": "established", "source": "textbook"}
+{"id": "motif", "domain": "sequence", "claim": "A motif is a recurring short pattern in a sequence.", "status": "established", "source": "textbook"}
+{"id": "blast", "domain": "discovery", "claim": "Local alignment finds similar subsequences between a query and a database.", "status": "established", "source": "Altschul 1990"}
+{"id": "phylogeny", "domain": "evolution", "claim": "A phylogeny is a hypothesis of branching ancestry.", "status": "established", "source": "textbook"}
+{"id": "snp", "domain": "variation", "claim": "A SNP is a single-nucleotide difference at a position.", "status": "established", "source": "textbook"}
+{"id": "indel", "domain": "variation", "claim": "An indel is an insertion or deletion relative to a reference.", "status": "established", "source": "textbook"}
+{"id": "promoter", "domain": "regulation", "claim": "A promoter is a region where transcription initiates.", "status": "established", "source": "textbook"}
+{"id": "enhancer", "domain": "regulation", "claim": "An enhancer can increase transcription from a distance.", "status": "established", "source": "textbook"}
+{"id": "knockout", "domain": "editing", "claim": "A knockout disrupts a gene so its product is absent or nonfunctional.", "status": "established", "source": "textbook"}
+{"id": "knockin", "domain": "editing", "claim": "A knock-in inserts or replaces sequence at a chosen site.", "status": "established", "source": "textbook"}
