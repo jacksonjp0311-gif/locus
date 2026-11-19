@@ -11,18 +11,12 @@
     "measured_edit"
   ],
   "refuse_if_off_target_above": 1,
-  "generation": 5,
+  "generation": 6,
   "last_change": {
-    "field": "tools",
-    "value": [
-      "score",
-      "ingest",
-      "simulate",
-      "off_target",
-      "ask",
-      "measured_edit"
-    ],
-    "score": 1.0,
+    "field": "last_score",
+    "value": 4.0,
+    "score": 4.0,
     "prior": 0.0
-  }
+  },
+  "last_score": 4.0
 }

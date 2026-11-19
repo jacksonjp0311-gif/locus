@@ -21,6 +21,7 @@ DEFAULT = {
     "tools": ["score", "ingest", "simulate", "off_target", "ask"],
     "refuse_if_off_target_above": 3,
     "generation": 0,
+    "last_score": 0,
 }
 
 
