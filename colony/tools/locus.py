@@ -1,7 +1,7 @@
 """Locus. Genetics vertex.
 
-Pattern: read the atlas, score a query, refuse or append.
-Never mutate a fact. Never invent a protocol. Fail open.
+Pattern: read the atlas, score a query, refuse or append a proposal.
+Phrase search. Never mutate a fact. Never invent a protocol. Fail open.
 """
 from __future__ import annotations
 import json
@@ -24,21 +24,19 @@ def read_atlas() -> list:
     return out
 
 
+def _blob(rec: dict) -> str:
+    return " ".join(str(rec.get(k) or "") for k in ("id", "claim", "domain", "source")).lower().replace("_", " ")
+
+
 def score(query: str) -> list:
-    """Return atlas entries whose claim or id contains the query. Fail-open."""
-    q = (query or "").lower()
+    """Phrase or token. Underscores and spaces match."""
+    q = (query or "").lower().replace("_", " ").strip()
     if not q:
         return []
-    hits = []
-    for rec in read_atlas():
-        blob = " ".join(str(rec.get(k) or "") for k in ("id", "claim", "domain")).lower()
-        if q in blob:
-            hits.append(rec)
-    return hits
+    return [rec for rec in read_atlas() if q in _blob(rec)]
 
 
 def propose(claim: str, against: str) -> dict:
-    """A novel claim is a proposal. It is not a fact. Fail-open."""
     rec = {"kind": "proposal", "claim": claim, "against": against, "status": "proposed"}
     try:
         PROPOSALS.parent.mkdir(parents=True, exist_ok=True)
@@ -58,8 +56,3 @@ def cycle(query: str = "crispr") -> dict:
         pass
     hits = score(query)
     return {"source": "locus", "query": query, "hits": len(hits), "ids": [h.get("id") for h in hits]}
-
-
-if __name__ == "__main__":
-    print(json.dumps(cycle("crispr")))
-    print(json.dumps(cycle("does not exist")))

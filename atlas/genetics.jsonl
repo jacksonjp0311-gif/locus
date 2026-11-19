@@ -31,3 +31,4 @@
 {"id": "enhancer", "domain": "regulation", "claim": "An enhancer can increase transcription from a distance.", "status": "established", "source": "textbook"}
 {"id": "knockout", "domain": "editing", "claim": "A knockout disrupts a gene so its product is absent or nonfunctional.", "status": "established", "source": "textbook"}
 {"id": "knockin", "domain": "editing", "claim": "A knock-in inserts or replaces sequence at a chosen site.", "status": "established", "source": "textbook"}
+{"id": "dna_storage", "domain": "information", "claim": "DNA can store digital information as a sequence of bases.", "status": "established", "source": "literature"}
