@@ -1,0 +1,20 @@
+{
+  "lineage": "locus",
+  "keep_bar": 0,
+  "max_fields_per_cycle": 1,
+  "tools": [
+    "score",
+    "ingest",
+    "simulate",
+    "off_target",
+    "ask"
+  ],
+  "refuse_if_off_target_above": 2,
+  "generation": 1,
+  "last_change": {
+    "field": "refuse_if_off_target_above",
+    "value": 2,
+    "score": 1.0,
+    "prior": 0.5
+  }
+}
