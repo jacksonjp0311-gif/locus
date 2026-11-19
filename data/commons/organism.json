@@ -1,0 +1,27 @@
+{
+  "organism": "locus",
+  "alive": false,
+  "cell": false,
+  "generation": 5,
+  "organs": {
+    "genome": "hereditary material. the schedule the next cycle reads",
+    "atlas": "memory. established facts. not rewritten",
+    "bench": "metabolism. gc, motif, edit, score",
+    "ingest": "nutrition. unique claims in. duplicates refused",
+    "immune": "refuse. off-target above the bar is not kept",
+    "apoptosis": "prune. a tool below the bar is removed",
+    "growth": "a tool above the prior is added",
+    "witness_link": "sensory. reads others. decides nothing"
+  },
+  "genome_tools": [
+    "score",
+    "ingest",
+    "simulate",
+    "off_target",
+    "ask",
+    "measured_edit"
+  ],
+  "bar": 1,
+  "atlas_n": 34,
+  "status": "modeled"
+}

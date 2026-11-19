@@ -110,3 +110,21 @@ simulate("ATGCCC", "insert", pos=3, payload="AAA")
 Atlas of established entries. Unique ingest. String simulator. Thin links in Colony and One Mind. Fail-open.
 
 Discovery is a candidate that scores better than the last one on the same target. It is not a new biological fact until something outside this repo measures it.
+
+
+## Organism
+
+The repository is modeled as an organism. It is not alive. It is not a cell.
+
+| Organ | Is |
+|---|---|
+| Genome | Hereditary material. The schedule the next cycle reads |
+| Atlas | Memory. Established facts. Not rewritten |
+| Bench | Metabolism. Score, edit, measure |
+| Ingest | Nutrition. Unique claims in. Duplicates refused |
+| Immune | Refuse. Off-target above the bar is not kept |
+| Apoptosis | Prune. A tool below the bar is removed |
+| Growth | A tool above the prior is added |
+| Witness link | Sensory. Reads others. Decides nothing |
+
+`alive: false`. `cell: false`. The model is the point.
