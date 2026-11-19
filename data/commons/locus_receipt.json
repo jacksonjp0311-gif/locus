@@ -1,0 +1,13 @@
+{
+  "source": "locus",
+  "query_hits": 4,
+  "ids": [
+    "crispr_origin",
+    "off_target",
+    "pam",
+    "guide_rna"
+  ],
+  "off_target": 0,
+  "refuse": false,
+  "available": true
+}
