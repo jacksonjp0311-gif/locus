@@ -10,11 +10,11 @@
     "ask"
   ],
   "refuse_if_off_target_above": 2,
-  "generation": 1,
+  "generation": 3,
   "last_change": {
-    "field": "refuse_if_off_target_above",
-    "value": 2,
-    "score": 1.0,
-    "prior": 0.5
+    "field": "tools",
+    "pruned": "theory_pull",
+    "score": 0.2,
+    "bar": 1.0
   }
 }
