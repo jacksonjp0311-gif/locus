@@ -48,6 +48,7 @@ def propose(claim: str, against: str) -> dict:
 
 
 def cycle(query: str = "crispr") -> dict:
+    """Read the translator. Score. Propose one genome field. Publish the keep or refuse."""
     try:
         t = ROOT / "TRANSLATOR.md"
         if t.exists():
@@ -55,7 +56,23 @@ def cycle(query: str = "crispr") -> dict:
     except Exception:
         pass
     hits = score(query)
-    return {"source": "locus", "query": query, "hits": len(hits), "ids": [h.get("id") for h in hits]}
+    habit = {"kept": False}
+    try:
+        from colony.tools.genome import load, propose
+        g = load()
+        prior = float(g.get("last_score") or 0)
+        score_now = float(len(hits))
+        # one field: record the score. kept only if it beats the prior.
+        habit = propose("last_score", score_now, score_now, prior)
+    except Exception:
+        habit = {"kept": False, "reason": "fail-open"}
+    return {
+        "source": "locus",
+        "query": query,
+        "hits": len(hits),
+        "ids": [h.get("id") for h in hits],
+        "habit": {"kept": habit.get("kept"), "reason": habit.get("reason")},
+    }
 
 
 if __name__ == "__main__":
