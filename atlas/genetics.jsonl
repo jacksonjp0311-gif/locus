@@ -1,0 +1,18 @@
+{"id": "central_dogma", "domain": "core", "claim": "DNA is transcribed to RNA and translated to protein.", "status": "established", "source": "Crick 1958"}
+{"id": "base_pairs", "domain": "core", "claim": "DNA bases pair A-T and G-C.", "status": "established", "source": "Watson Crick 1953"}
+{"id": "codon", "domain": "core", "claim": "A codon is three nucleotides specifying an amino acid or stop.", "status": "established", "source": "Nirenberg"}
+{"id": "crispr_origin", "domain": "editing", "claim": "CRISPR is a bacterial adaptive immune system later adapted as a programmable nuclease.", "status": "established", "source": "Mojica; Doudna Charpentier 2012"}
+{"id": "cas9", "domain": "editing", "claim": "Cas9 cuts DNA at a site specified by a guide RNA next to a PAM.", "status": "established", "source": "Jinek 2012"}
+{"id": "prime_editing", "domain": "editing", "claim": "Prime editing writes short edits without a double-strand break or donor template.", "status": "established", "source": "Anzalone 2019"}
+{"id": "base_editing", "domain": "editing", "claim": "Base editors convert one base to another without a double-strand break.", "status": "established", "source": "Komor 2016"}
+{"id": "mrna", "domain": "expression", "claim": "mRNA carries the coding sequence from nucleus to ribosome.", "status": "established", "source": "textbook"}
+{"id": "splicing", "domain": "expression", "claim": "Introns are removed and exons joined to form mature mRNA.", "status": "established", "source": "textbook"}
+{"id": "epigenetics", "domain": "regulation", "claim": "Methylation and histone marks change expression without changing sequence.", "status": "established", "source": "textbook"}
+{"id": "gwas", "domain": "variation", "claim": "GWAS associates common variants with traits in populations.", "status": "established", "source": "textbook"}
+{"id": "mendel", "domain": "variation", "claim": "Segregation and independent assortment describe inheritance of discrete factors.", "status": "established", "source": "Mendel 1866"}
+{"id": "pcr", "domain": "methods", "claim": "PCR amplifies a DNA segment using primers and a polymerase.", "status": "established", "source": "Mullis"}
+{"id": "sequencing", "domain": "methods", "claim": "Sequencing reads the order of nucleotides in a molecule.", "status": "established", "source": "Sanger; NGS"}
+{"id": "homology", "domain": "evolution", "claim": "Homologous genes share ancestry and can be aligned.", "status": "established", "source": "textbook"}
+{"id": "selection", "domain": "evolution", "claim": "Selection changes allele frequencies when variants affect reproductive success.", "status": "established", "source": "textbook"}
+{"id": "off_target", "domain": "editing", "claim": "CRISPR nucleases can cut sites similar to the intended target.", "status": "established", "source": "literature"}
+{"id": "delivery", "domain": "editing", "claim": "Editing components must reach the target cell. Delivery is a separate problem from cutting.", "status": "established", "source": "literature"}
