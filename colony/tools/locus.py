@@ -48,7 +48,12 @@ def propose(claim: str, against: str) -> dict:
 
 
 def cycle(query: str = "crispr") -> dict:
-    """Read the translator. Score. Propose one genome field. Publish the keep or refuse."""
+    """Read the translator. Measure a trial. Propose one field.
+
+    Score is the trial quality, not the atlas hit count.
+    Higher is better. Kept only if it beats the prior.
+    A worse trial refuses. Fail-open.
+    """
     try:
         t = ROOT / "TRANSLATOR.md"
         if t.exists():
@@ -57,13 +62,20 @@ def cycle(query: str = "crispr") -> dict:
         pass
     hits = score(query)
     habit = {"kept": False}
+    quality = 0.0
     try:
         from colony.tools.genome import load, propose
+        from colony.tools.trial import run as trial_run
         g = load()
         prior = float(g.get("last_score") or 0)
-        score_now = float(len(hits))
-        # one field: record the score. kept only if it beats the prior.
-        habit = propose("last_score", score_now, score_now, prior)
+        trial = trial_run(query or "crispr", "ACGTACGTACGT", guide="ACGT", corpus=[])
+        measured = trial.get("measure") or {}
+        ot = float(measured.get("off_target") or 0)
+        motifs = float(measured.get("motif_hits") or 0)
+        accepted = 1.0 if (trial.get("evaluate") or {}).get("accept") else 0.0
+        # Quality can rise or fall. A miss on the bar scores lower.
+        quality = round(max(0.0, (10.0 - ot) * accepted + motifs), 3)
+        habit = propose("last_score", quality, quality, prior)
     except Exception:
         habit = {"kept": False, "reason": "fail-open"}
     return {
@@ -71,6 +83,7 @@ def cycle(query: str = "crispr") -> dict:
         "query": query,
         "hits": len(hits),
         "ids": [h.get("id") for h in hits],
+        "quality": quality,
         "habit": {"kept": habit.get("kept"), "reason": habit.get("reason")},
     }
 
