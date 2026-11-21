@@ -2,3 +2,4 @@
 {"task": "crispr", "prior": 0, "real_score": 1.0, "sham_score": 1.0, "real_changed": true, "sham_changed": true, "transfer": false, "source": "locus"}
 {"task": "crispr", "prior": 0, "real_score": 0.0, "sham_score": 0.0, "real_changed": false, "sham_changed": false, "transfer": false, "source": "locus"}
 {"task": "crispr", "prior": 0.0, "real_score": 1.0, "sham_score": 0.0, "real_changed": true, "sham_changed": false, "transfer": true, "source": "locus"}
+{"task": "crispr", "prior": 0.0, "real_score": 1.0, "sham_score": 0.0, "real_changed": true, "sham_changed": false, "transfer": true, "source": "locus"}
