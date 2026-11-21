@@ -83,9 +83,10 @@ def cycle(query: str = "crispr") -> dict:
     except Exception:
         habit = {"kept": False, "reason": "fail-open"}
     try:
-        from colony.tools.frozen import run as frozen_run, TASK, ANSWER
-        # Real holds the three-step answer. Sham holds a one-step error.
-        frozen_run(TASK, [ANSWER], ["CGGCAT:R:5"])
+        from colony.tools.evaluate import run as eval_run
+        from colony.tools.tasks import QUEUE
+        # Open queue. Hidden check. Attempt does not see the check.
+        eval_run(QUEUE[0])
     except Exception:
         pass
     return {
