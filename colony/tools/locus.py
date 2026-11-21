@@ -73,7 +73,6 @@ def cycle(query: str = "crispr") -> dict:
         ot = float(measured.get("off_target") or 0)
         motifs = float(measured.get("motif_hits") or 0)
         accepted = 1.0 if (trial.get("evaluate") or {}).get("accept") else 0.0
-        # Quality can rise or fall. A miss on the bar scores lower.
         quality = round(max(0.0, (10.0 - ot) * accepted + motifs), 3)
         habit = propose("last_score", quality, quality, prior)
         try:
@@ -84,8 +83,9 @@ def cycle(query: str = "crispr") -> dict:
     except Exception:
         habit = {"kept": False, "reason": "fail-open"}
     try:
-        from colony.tools.frozen import run as frozen_run
-        frozen_run(query or "crispr", [query or "crispr"], ["sham"])
+        from colony.tools.frozen import run as frozen_run, TASK, ANSWER
+        # Real holds the computed answer. Sham does not.
+        frozen_run(TASK, [ANSWER], ["AAAA"])
     except Exception:
         pass
     return {

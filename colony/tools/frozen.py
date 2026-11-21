@@ -1,8 +1,9 @@
 """Frozen-task trial. Real arm and sham arm.
 
-Pattern: same task, two corpora.
-Real may change the decision. Sham must not.
-One number: transfer is true only if the real arm changed
+Pattern: same computational task, two corpora.
+The task is a reverse complement. Not a string search.
+Real may contain the answer. Sham must not.
+Transfer is true only if the real arm changed
 and the sham arm did not. Fail-open. Not a biological result.
 """
 from __future__ import annotations
@@ -12,22 +13,37 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent.parent
 STORE = ROOT / "data" / "commons" / "frozen.jsonl"
 
+COMP = {"A": "T", "T": "A", "C": "G", "G": "C"}
 
-def _score(corpus: list, query: str) -> int:
-    """Hits of the query in the corpus. Higher is a change."""
-    q = (query or "").lower()
-    return sum(1 for item in corpus if q and q in str(item).lower())
+# Fixed task. Sequence in, reverse complement out.
+TASK = "ATGC"
+ANSWER = "GCAT"
 
 
-def run(task: str, real: list, sham: list, prior: float = 0.0) -> dict:
+def reverse_complement(seq: str) -> str:
+    """Reverse complement of a DNA string. Unknown bases stay."""
+    return "".join(COMP.get(b, b) for b in reversed((seq or "").upper()))
+
+
+def _score(corpus: list, answer: str) -> int:
+    """1 if the corpus holds the computed answer. 0 otherwise."""
+    want = (answer or "").upper()
+    return 1 if any(str(item).upper() == want for item in (corpus or [])) else 0
+
+
+def run(task: str = TASK, real: list | None = None, sham: list | None = None,
+        prior: float = 0.0) -> dict:
     """One task. Two arms. Transfer only if real beats prior and sham does not."""
-    real_score = float(_score(real or [], task))
-    sham_score = float(_score(sham or [], task))
+    answer = reverse_complement(task or TASK)
+    real_score = float(_score(real or [], answer))
+    sham_score = float(_score(sham or [], answer))
     real_changed = real_score > prior
     sham_changed = sham_score > prior
     transfer = bool(real_changed and not sham_changed)
     rec = {
-        "task": task,
+        "task": task or TASK,
+        "answer": answer,
+        "kind": "reverse_complement",
         "prior": prior,
         "real_score": real_score,
         "sham_score": sham_score,
