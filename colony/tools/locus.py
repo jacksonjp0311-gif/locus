@@ -76,6 +76,11 @@ def cycle(query: str = "crispr") -> dict:
         # Quality can rise or fall. A miss on the bar scores lower.
         quality = round(max(0.0, (10.0 - ot) * accepted + motifs), 3)
         habit = propose("last_score", quality, quality, prior)
+        try:
+            from colony.tools.seeded import record
+            record(prior, quality, bool(habit.get("kept")), "locus")
+        except Exception:
+            pass
     except Exception:
         habit = {"kept": False, "reason": "fail-open"}
     return {
