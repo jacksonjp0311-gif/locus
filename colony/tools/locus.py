@@ -83,6 +83,11 @@ def cycle(query: str = "crispr") -> dict:
             pass
     except Exception:
         habit = {"kept": False, "reason": "fail-open"}
+    try:
+        from colony.tools.frozen import run as frozen_run
+        frozen_run(query or "crispr", [query or "crispr"], ["sham"])
+    except Exception:
+        pass
     return {
         "source": "locus",
         "query": query,
