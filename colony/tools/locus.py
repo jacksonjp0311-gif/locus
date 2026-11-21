@@ -84,8 +84,8 @@ def cycle(query: str = "crispr") -> dict:
         habit = {"kept": False, "reason": "fail-open"}
     try:
         from colony.tools.frozen import run as frozen_run, TASK, ANSWER
-        # Real holds the computed answer. Sham does not.
-        frozen_run(TASK, [ANSWER], ["AAAA"])
+        # Real holds the three-step answer. Sham holds a one-step error.
+        frozen_run(TASK, [ANSWER], ["CGGCAT:R:5"])
     except Exception:
         pass
     return {
