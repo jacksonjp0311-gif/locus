@@ -5,3 +5,4 @@
 {"task": "crispr", "prior": 0.0, "real_score": 1.0, "sham_score": 0.0, "real_changed": true, "sham_changed": false, "transfer": true, "source": "locus"}
 {"task": "ATGC", "answer": "GCAT", "kind": "reverse_complement", "prior": 0.0, "real_score": 1.0, "sham_score": 0.0, "real_changed": true, "sham_changed": false, "transfer": true, "source": "locus"}
 {"task": "ATGCCG", "answer": "CGGCAT:R:6", "kind": "rc_codon_length", "steps": 3, "prior": 0.0, "real_score": 1.0, "sham_score": 0.0, "real_changed": true, "sham_changed": false, "transfer": true, "source": "locus"}
+{"task": "ATGCCG", "answer": "CGGCAT:R:6", "kind": "rc_codon_length", "steps": 3, "prior": 0.0, "real_score": 1.0, "sham_score": 0.0, "real_changed": true, "sham_changed": false, "transfer": true, "source": "locus"}
