@@ -48,7 +48,7 @@ def propose(claim: str, against: str) -> dict:
 
 
 def cycle(query: str = "crispr") -> dict:
-    """Read the translator. Measure a trial. Propose one field.
+    """Read the translator. Measure a trial. Propose one field
 
     Score is the trial quality, not the atlas hit count.
     Higher is better. Kept only if it beats the prior.
@@ -86,9 +86,15 @@ def cycle(query: str = "crispr") -> dict:
         from colony.tools.evaluate import run as eval_run
         from colony.tools.tasks import QUEUE
         # Open queue. Hidden check. Attempt does not see the check.
-        eval_run(QUEUE[0])
+        # Run every task, not only the first. rc2 cycles beside rc1.
+        queue_results = []
+        for task in QUEUE:
+            try:
+                queue_results.append(eval_run(task))
+            except Exception:
+                queue_results.append({"task": task, "error": "fail-open"})
     except Exception:
-        pass
+        queue_results = []
     return {
         "source": "locus",
         "query": query,
@@ -96,6 +102,7 @@ def cycle(query: str = "crispr") -> dict:
         "ids": [h.get("id") for h in hits],
         "quality": quality,
         "habit": {"kept": habit.get("kept"), "reason": habit.get("reason")},
+        "queue": queue_results,
     }
 
 
