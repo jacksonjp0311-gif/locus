@@ -85,8 +85,6 @@ def cycle(query: str = "crispr") -> dict:
     try:
         from colony.tools.evaluate import run as eval_run
         from colony.tools.tasks import QUEUE
-        # Open queue. Hidden check. Attempt does not see the check.
-        # Run every task, not only the first. rc2 cycles beside rc1.
         queue_results = []
         for task in QUEUE:
             try:
@@ -95,6 +93,12 @@ def cycle(query: str = "crispr") -> dict:
                 queue_results.append({"task": task, "error": "fail-open"})
     except Exception:
         queue_results = []
+    ops_result = {}
+    try:
+        from colony.tools.run_ops import run as ops_run
+        ops_result = ops_run()
+    except Exception:
+        ops_result = {"transfer": False, "reason": "fail-open"}
     return {
         "source": "locus",
         "query": query,
@@ -103,6 +107,7 @@ def cycle(query: str = "crispr") -> dict:
         "quality": quality,
         "habit": {"kept": habit.get("kept"), "reason": habit.get("reason")},
         "queue": queue_results,
+        "ops": ops_result,
     }
 
 
