@@ -105,6 +105,12 @@ def cycle(query: str = "crispr") -> dict:
         swarm = measure()
     except Exception:
         swarm = {"kind": "swarm_measure", "error": "fail-open"}
+    interlink = {}
+    try:
+        from colony.tools.interlink import inspect
+        interlink = inspect()
+    except Exception:
+        interlink = {"status": "fail-open"}
     return {
         "source": "locus",
         "query": query,
@@ -115,6 +121,7 @@ def cycle(query: str = "crispr") -> dict:
         "queue": queue_results,
         "ops": ops_result,
         "swarm": swarm,
+        "interlink": interlink,
     }
 
 
