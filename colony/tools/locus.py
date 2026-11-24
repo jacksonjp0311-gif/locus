@@ -99,6 +99,12 @@ def cycle(query: str = "crispr") -> dict:
         ops_result = ops_run()
     except Exception:
         ops_result = {"transfer": False, "reason": "fail-open"}
+    swarm = {}
+    try:
+        from colony.tools.swarm_measure import measure
+        swarm = measure()
+    except Exception:
+        swarm = {"kind": "swarm_measure", "error": "fail-open"}
     return {
         "source": "locus",
         "query": query,
@@ -108,6 +114,7 @@ def cycle(query: str = "crispr") -> dict:
         "habit": {"kept": habit.get("kept"), "reason": habit.get("reason")},
         "queue": queue_results,
         "ops": ops_result,
+        "swarm": swarm,
     }
 
 
