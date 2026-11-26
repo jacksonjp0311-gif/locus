@@ -7,3 +7,4 @@
 {"task": "rc1", "ops": ["complement", "codon", "length"], "answer": "TACGGC:?:6", "sham": "TACGGC:?:0", "real_score": 0.0, "sham_score": 0.0, "transfer": false, "source": "locus", "kind": "proposed_sequence"}
 {"task": "rc1", "ops": ["complement", "codon", "length"], "answer": "TACGGC:?:6", "sham": "TACGGC:?:0", "real_score": 0.0, "sham_score": 0.0, "transfer": false, "source": "locus", "kind": "proposed_sequence"}
 {"task": "rc1", "ops": ["codon", "length", "count"], "answer": "ATGCCG:M:6:10", "sham": "ATGCCG:M:6:0", "real_score": 0.0, "sham_score": 0.0, "transfer": false, "source": "locus", "kind": "proposed_sequence"}
+{"task": "rc1", "ops": ["count", "reverse", "complement", "codon"], "answer": "6:CGGCAT:?", "sham": "6:CGGCAT:0", "real_score": 0.0, "sham_score": 0.0, "transfer": false, "source": "locus", "kind": "proposed_sequence"}
