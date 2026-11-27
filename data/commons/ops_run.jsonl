@@ -9,3 +9,8 @@
 {"task": "rc1", "ops": ["codon", "length", "count"], "answer": "ATGCCG:M:6:10", "sham": "ATGCCG:M:6:0", "real_score": 0.0, "sham_score": 0.0, "transfer": false, "source": "locus", "kind": "proposed_sequence"}
 {"task": "rc1", "ops": ["count", "reverse", "complement", "codon"], "answer": "6:CGGCAT:?", "sham": "6:CGGCAT:0", "real_score": 0.0, "sham_score": 0.0, "transfer": false, "source": "locus", "kind": "proposed_sequence"}
 {"task": "rc1", "ops": ["complement", "codon", "length", "count"], "answer": "TACGGC:?:6:10", "sham": "TACGGC:?:6:0", "real_score": 0.0, "sham_score": 0.0, "transfer": false, "source": "locus", "kind": "proposed_sequence"}
+{"task": "rc1", "ops": ["reverse", "complement", "codon"], "answer": "CGGCAT:R", "sham": "CGGCAT:0", "real_score": 0.0, "sham_score": 0.0, "transfer": false, "source": "locus", "kind": "proposed_sequence"}
+{"task": "rc1", "ops": ["count", "reverse", "complement"], "answer": "CGGCAT", "sham": "CGGCAT:0", "real_score": 0.0, "sham_score": 0.0, "transfer": false, "source": "locus", "kind": "proposed_sequence"}
+{"task": "rc1", "ops": ["length", "count", "reverse", "complement"], "answer": "CGGCAT", "sham": "CGGCAT:0", "real_score": 0.0, "sham_score": 0.0, "transfer": false, "source": "locus", "kind": "proposed_sequence"}
+{"task": "rc1", "ops": ["reverse", "complement", "codon", "length"], "answer": "CGGCAT:R:6", "sham": "CGGCAT:R:0", "real_score": 1.0, "sham_score": 0.0, "transfer": true, "source": "locus", "kind": "proposed_sequence"}
+{"task": "rc1", "ops": ["codon", "length", "count", "reverse"], "answer": "6:6:M:GCCGTA", "sham": "6:6:M:0", "real_score": 0.0, "sham_score": 0.0, "transfer": false, "source": "locus", "kind": "proposed_sequence"}
